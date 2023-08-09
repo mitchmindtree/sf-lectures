@@ -623,11 +623,18 @@ Theorem mult_plus_distr_r : forall n m p : nat,
   (n + m) * p = (n * p) + (m * p).
 Proof.
   intros n m p.
-  (* FILL IN HERE *) Admitted.
+  induction n as [| n'].
+  - reflexivity.
+  - simpl. rewrite IHn'. rewrite add_assoc. reflexivity. 
+Qed.
 
 Theorem mult_assoc : forall n m p : nat,
   n * (m * p) = (n * m) * p.
 Proof.
+  intros n m p.
+  induction n as [| n'].
+  - reflexivity.
+  - simpl. rewrite IHn'.
   (* FILL IN HERE *) Admitted.
 (** [] *)
 
