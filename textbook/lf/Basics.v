@@ -1563,10 +1563,9 @@ Fixpoint incr (m:bin) : bin :=
 
 Fixpoint bin_to_nat (m:bin) : nat :=
   match m with
-  | Z => O
-  | B1 Z => S 0
-  | B0 m' => S (bin_to_nat m')
-  | B1 m' => S (S (bin_to_nat m'))
+  | Z => 0
+  | B0 m' => (bin_to_nat m') * 2
+  | B1 m' => S ((bin_to_nat m') * 2)
   end.
 
 (** The following "unit tests" of your increment and binary-to-unary
